@@ -597,7 +597,10 @@ public class ScanBoxView extends View {
             mAnimDelayTime = (int) ((1.0f * mAnimTime * mMoveStepDistance) / mRectWidth);
         } else {
             mTipText = mQRCodeTipText;
-            mRectHeight = mBarcodeRectHeight;
+            mRectHeight = if (mBarcodeRectHeight == 0)
+                mRectWidth
+            else
+                mBarcodeRectHeight;
             mAnimDelayTime = (int) ((1.0f * mAnimTime * mMoveStepDistance) / mRectHeight);
         }
 
